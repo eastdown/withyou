@@ -12,7 +12,7 @@ class Finder extends StatefulWidget {
 class _FinderState extends State<Finder> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  static const LatLng _center = const LatLng(35.521563, -109.677433);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -27,16 +27,14 @@ class _FinderState extends State<Finder> {
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
             target: _center,
-            zoom: 11.0,
+            zoom: 20.0,
           ),
-          Marker(
-            markerId: MarkerId("source"),
-            position: sourceLocation,
-          ),
-          Marker(
-            markerId: MarkerId("destination"),
-            position: destination,
-          ),
+          markers: {
+            Marker(
+              markerId: MarkerId("source"),
+              position: _center,
+            ),
+          },
         ),
       );
   }

@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:withyou/screen/home.dart';
 
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -50,6 +51,9 @@ class _LoginPageState extends State<LoginPage> {
                           Padding(
                               padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.3)
                           ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width *0.8,
+                            child: Image.asset('asset/image/CSIS_logo.png'),),
                           Padding(padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05)),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.8,

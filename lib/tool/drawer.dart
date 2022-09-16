@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:withyou/screen/home.dart';
+import 'package:withyou/screen/finder.dart';
 
 
 
@@ -70,8 +71,11 @@ class _DrawerForAllState extends State<DrawerForAll> {
           ),
           ListTile(
               leading: Icon(Icons.volume_up_outlined, color: Colors.black54),
-              title: Text('Announcement', style: TextStyle(color: Colors.black87)),
+              title: Text('Finder', style: TextStyle(color: Colors.black87)),
               onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Finder()));
               }
             //onTap
           ),

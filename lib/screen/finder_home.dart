@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:withyou/screen/finder.dart';
 
 int finderIndex = 0;
+String finderSerial = '';
 
 class FinderHome extends StatefulWidget {
   const FinderHome({Key? key}) : super(key: key);
@@ -119,6 +120,7 @@ class _FinderHomeState extends State<FinderHome> {
                                     context,
                                     MaterialPageRoute(builder: (context) => Finder()),);
                                     finderIndex = index;
+                                    finderSerial = '${snapshot.data?.docs[index]['serialNumber']}';
                                   },
                                   child:Container(
 

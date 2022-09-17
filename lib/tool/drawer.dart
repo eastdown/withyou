@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:withyou/screen/home.dart';
-import 'package:withyou/screen/finder.dart';
+import 'package:withyou/screen/finder_home.dart';
 
 
 
@@ -75,7 +75,7 @@ class _DrawerForAllState extends State<DrawerForAll> {
               onTap: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Finder()));
+                    MaterialPageRoute(builder: (context) => FinderHome()));
               }
             //onTap
           ),

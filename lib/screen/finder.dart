@@ -23,19 +23,22 @@ class _FinderState extends State<Finder> {
         appBar: AppBar(
         ),
       drawer: DrawerForAll(),
-      body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 20.0,
-          ),
-          markers: {
-            Marker(
-              markerId: MarkerId("source"),
-              position: _center,
-            ),
-          },
+      body: SizedBox(
+        width: 200,
+        height: 400,
+        child: GoogleMap(
+        onMapCreated: _onMapCreated,
+        initialCameraPosition: CameraPosition(
+          target: _center,
+          zoom: 13.0,
         ),
+        markers: {
+          Marker(
+            markerId: MarkerId("source"),
+            position: _center,
+          ),
+        },
+      ),)
       );
   }
 }

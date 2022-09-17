@@ -65,7 +65,8 @@ class _HomeState extends State<Home> {
                         shrinkWrap: true,
                         itemBuilder: (context, index){
                       return ListTile(
-                        title: Text('One-line with trailing widget'),
+                        title: Text('${snapshot.data!.docs[index]['title']}'),
+                        subtitle: Text('${snapshot.data!.docs[index]['displayDueDate']}'),
                       );
                     });
                   }

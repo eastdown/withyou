@@ -16,6 +16,21 @@ class ToDoAdd extends StatefulWidget {
 class _ToDoAddState extends State<ToDoAdd> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
   TextEditingController titleController = TextEditingController();
   TextEditingController contentController = TextEditingController();
   TextEditingController nameController = TextEditingController();
@@ -107,13 +122,10 @@ class _ToDoAddState extends State<ToDoAdd> {
                               FirebaseFirestore.instance.collection('ToDo').doc().set({
                                 'title': postTitle,
                                 'content': content,
-                                'displayName': "${FirebaseAuth.instance.currentUser?.displayName}",
                                 'uid': "${FirebaseAuth.instance.currentUser?.email}",
-                                'imageUrl': null,
-                                'date': DateTime.now().toUtc(),
-                                'displayDate' : DateFormat.yMMMd('en_US').format(DateTime.now()),
-                                'login': (FirebaseAuth.instance.currentUser != null) ? true : false,
-                                'logoutName': nameController.text
+                                'createdDate': DateTime.now().toUtc(),
+                                'displayDueDate' : DateFormat.yMMMd('en_US').format(selectedDate),
+                                'dueDate' : Timestamp.fromDate(selectedDate),
                               });
                               Navigator.pop(context);
 
@@ -191,6 +203,15 @@ class _ToDoAddState extends State<ToDoAdd> {
                     },
                   ),
                 ),
+                Padding(
+                  padding:EdgeInsets.only(right:20, left:20),
+                  child: ElevatedButton(
+                    onPressed: () => _selectDate(context),
+                    child: Text("select date"),
+                  ),
+                ),
+                Text(DateFormat.yMMMd().format(selectedDate)),
+
 
 
 

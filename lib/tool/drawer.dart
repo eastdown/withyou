@@ -31,24 +31,7 @@ class _DrawerForAllState extends State<DrawerForAll> {
 
             accountEmail: Text("${FirebaseAuth.instance.currentUser?.email}"),
             accountName: Text("${FirebaseAuth.instance.currentUser?.displayName}"),
-            onDetailsPressed: () {
-              showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: const Text('This is a meaningless button'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, 'Cancel'),
-                      child: const Text('Congratulations'),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, 'Cancel'),
-                      child: const Text('You found it'),
-                    ),
-                  ],
-                ),
-              );
-            },
+
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -61,8 +44,8 @@ class _DrawerForAllState extends State<DrawerForAll> {
                 )),
           ),
           ListTile(
-              leading: Icon(Icons.home_outlined, color: Colors.black54),
-              title: Text('Home', style: TextStyle(color: Colors.black87)),
+              leading: Icon(Icons.calendar_today, color: Colors.black54),
+              title: Text('플래너', style: TextStyle(color: Colors.black87)),
               onTap: () {
                 Navigator.push(
                     context,
@@ -70,14 +53,17 @@ class _DrawerForAllState extends State<DrawerForAll> {
               }
           ),
           ListTile(
-              leading: Icon(Icons.volume_up_outlined, color: Colors.black54),
-              title: Text('Finder', style: TextStyle(color: Colors.black87)),
+              leading: Icon(Icons.volunteer_activism_outlined, color: Colors.black54),
+              title: Text('파인더', style: TextStyle(color: Colors.black87)),
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => FinderHome()));
               }
             //onTap
+          ),
+          Divider(
+              color: Colors.black54
           ),
 
           ListTile(

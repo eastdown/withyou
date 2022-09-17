@@ -20,7 +20,13 @@ class _FinderState extends State<Finder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: AppBar(
+          centerTitle: true,
+          title: Image.asset('asset/withyou_logo.png', fit: BoxFit.fitHeight, height: 55),
+          iconTheme: const IconThemeData(color: Colors.grey),
+          backgroundColor: Colors.white,
+          elevation: 0,
         ),
       drawer: DrawerForAll(),
       body: SizedBox(

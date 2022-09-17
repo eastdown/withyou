@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:withyou/tool/todoAdd.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 
 
@@ -52,7 +53,7 @@ class _HomeState extends State<Home> {
 
                 Align(
                   child:Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 20, bottom:10),
                       child: Text('오늘 할 일', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
                   alignment: Alignment.centerLeft,
                 ),
@@ -68,10 +69,19 @@ class _HomeState extends State<Home> {
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (context, index){
-                            return ListTile(
+                            return Card(
+                              elevation: 10,
+                                child:CheckboxListTile(
+                                  controlAffinity: ListTileControlAffinity.leading,
+                                  value: timeDilation != 1.0,
+                              onChanged: (bool? value){
+                                    setState(() {
+                                      timeDilation = value! ? 10.0 :1.0;
+                                    });
+                              },
                               title: Text('${snapshot.data!.docs[index]['title']}'),
                               subtitle: Text('${snapshot.data!.docs[index]['displayDueDate']}'),
-                            );
+                            ));
                           });
                     }
                 ),
@@ -105,12 +115,13 @@ class _HomeState extends State<Home> {
         ),),
       backgroundColor: Colors.white,
 
-    floatingActionButton: FloatingActionButton(
-    onPressed: (){
+    floatingActionButton: FloatingActionButton.extended(
+      label: Text('할 일 추가'),
+        onPressed: (){
       Navigator.push(context,
       MaterialPageRoute(builder: (context) => ToDoAdd()));
       },
-    child: Icon(Icons.post_add_outlined, size: 25,),
+    icon: Icon(Icons.post_add_outlined, size: 25,),
     backgroundColor: Color.fromRGBO(63, 94, 255, 1.0)
     ));
   }

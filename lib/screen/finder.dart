@@ -92,10 +92,28 @@ class _FinderState extends State<Finder> {
                         color: Colors.green,
                       ),
                     ),
-                    child: Text(
-                      '${snapshot.data!.docs[0]['Wi5']}',
-                      style: TextStyle(fontSize: 10.0),
-                    ),
+                    child: Column(
+                      children: [
+                        Align(
+                          child: Padding(
+                            padding: EdgeInsets.only(top:20, left:20),
+                            child: Text('${snapshot.data!.docs[0]['Wi5']}',style: TextStyle(fontSize: 10.0),),
+                          ),
+                        ),
+                        Align(
+                          child: Padding(
+                            padding: EdgeInsets.only(top:20, left:20),
+                            child: Text('${snapshot.data!.docs[0]['Wi5']}',style: TextStyle(fontSize: 10.0),),
+                          ),
+                        ),
+                        Align(
+                          child: Padding(
+                            padding: EdgeInsets.only(top:20, left:20),
+                            child: Text('${snapshot.data!.docs[0]['Wi5']}',style: TextStyle(fontSize: 10.0),),
+                          ),
+                        ),
+                      ],
+                    )
                   ),
 
                 ],

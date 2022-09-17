@@ -93,14 +93,10 @@ class _FinderState extends State<Finder> {
                       ),
                     ),
                     child: Text(
-                      "text",
+                      '${snapshot.data!.docs[0]['Wi5']}',
                       style: TextStyle(fontSize: 10.0),
                     ),
                   ),
-
-
-
-                  Text('${snapshot.data!.docs[0]['Wi5']}'),
 
                 ],
               )

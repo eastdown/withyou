@@ -84,6 +84,22 @@ class _FinderState extends State<Finder> {
                     ),
                     alignment: Alignment.centerLeft,
                   ),
+
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: Colors.green,
+                      ),
+                    ),
+                    child: Text(
+                      "text",
+                      style: TextStyle(fontSize: 10.0),
+                    ),
+                  ),
+
+
+
                   Text('${snapshot.data!.docs[0]['Wi5']}'),
 
                 ],

@@ -15,7 +15,12 @@ class _FinderHomeState extends State<FinderHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.grey),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       drawer: DrawerForAll(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

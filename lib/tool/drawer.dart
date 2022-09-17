@@ -52,8 +52,8 @@ class _DrawerForAllState extends State<DrawerForAll> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color.fromRGBO(255, 143, 158, 1),
-                    Color.fromRGBO(189, 100, 205, 1),
+                    Color.fromRGBO(84, 196, 255, 1.0),
+                    Color.fromRGBO(229, 116, 255, 1.0),
                   ],),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(40),

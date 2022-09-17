@@ -46,11 +46,11 @@ class _ToDoAddState extends State<ToDoAdd> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Cannot Post Your Writing'),
+          title: const Text('할 일 목록에 올릴 수 없습니다'),
           content: SingleChildScrollView(
             child: ListBody(
               children: const <Widget>[
-                Text('Please fill out both title and content'),
+                Text('제목과 내용을 적어주세요'),
               ],
             ),
           ),
@@ -73,11 +73,11 @@ class _ToDoAddState extends State<ToDoAdd> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Cannot Post Your Writing'),
+          title: const Text('할 일 목록에 올릴 수 없습니다'),
           content: SingleChildScrollView(
             child: ListBody(
               children: const <Widget>[
-                Text('Please fill out your name'),
+                Text('제목을 작성해주세요'),
               ],
             ),
           ),
@@ -100,7 +100,12 @@ class _ToDoAddState extends State<ToDoAdd> {
 
 
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.grey),
+        backgroundColor: Colors.white,
+        elevation: 0
+      ),
       bottomNavigationBar: BottomAppBar(
           color: Colors.white,
           elevation: 0,
@@ -136,10 +141,10 @@ class _ToDoAddState extends State<ToDoAdd> {
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.3,
                             height: 53.5,
-                            child: Center(child: Text('Submit', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 15),),),
+                            child: Center(child: Text('등록', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 15),),),
 
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(121, 179, 119, 1.0),
+                                color: Color.fromRGBO(34, 45, 255, 1.0),
                                 borderRadius: BorderRadius.circular(20)
                             ),
                           )
@@ -165,7 +170,7 @@ class _ToDoAddState extends State<ToDoAdd> {
                 ): Padding(padding:EdgeInsets.zero),
                 Padding(
                     padding: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.05, left: MediaQuery.of(context).size.width *0.03),
-                    child: Text('Title', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),)
+                    child: Text('제목', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),)
                 ),
                 Padding(
                   padding: EdgeInsets.only( left: MediaQuery.of(context).size.width *0.03, right:MediaQuery.of(context).size.width *0.03 ),
@@ -173,7 +178,7 @@ class _ToDoAddState extends State<ToDoAdd> {
                     controller: titleController,
                     maxLength: 50,
                     decoration: InputDecoration(
-                        labelText: 'Add a title here'
+                        labelText: '제목을 이곳에 적으세요'
                     ),
                     onChanged: (value){
                       setState(() {
@@ -185,7 +190,7 @@ class _ToDoAddState extends State<ToDoAdd> {
 
                 Padding(
                     padding: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.05, left: MediaQuery.of(context).size.width *0.03),
-                    child: Text('Content', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),)
+                    child: Text('내용', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),)
                 ),
                 Padding(
                   padding: EdgeInsets.only( left: MediaQuery.of(context).size.width *0.03, right:MediaQuery.of(context).size.width *0.03 ),
@@ -193,7 +198,7 @@ class _ToDoAddState extends State<ToDoAdd> {
                     keyboardType: TextInputType.multiline,
                     controller: contentController,
                     decoration: InputDecoration(
-                      labelText: 'Add your content here',
+                      labelText: '내용을 적으세요',
                     ),
                     maxLines: null,
                     onChanged: (value){
@@ -203,15 +208,14 @@ class _ToDoAddState extends State<ToDoAdd> {
                     },
                   ),
                 ),
+
                 Padding(
-                  padding:EdgeInsets.only(right:20, left:20),
-                  child: ElevatedButton(
+                  padding:EdgeInsets.only(top:30),
+                  child: TextButton(
                     onPressed: () => _selectDate(context),
-                    child: Text("select date"),
+                    child: Text("마감일"),
                   ),
                 ),
-                Text(DateFormat.yMMMd().format(selectedDate)),
-
 
 
 
